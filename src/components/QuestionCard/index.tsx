@@ -5,24 +5,57 @@ type QuestionCardProps = {
     id: string;
     question: string;
     user: string;
-}
+    isAnswered: boolean;
+    isChecked: boolean;
+};
 
-const QuestionCard = ({id, question, user}: QuestionCardProps) => {
+type ActionButtonProps = {
+    label: string;
+    url: string;
+    onClick?: () => void;
+};
+
+const QuestionCard = ({
+    id,
+    question,
+    user,
+    isAnswered,
+    isChecked,
+}: QuestionCardProps) => {
+    const bgCard = isAnswered ? 'purple.50' : isChecked ? 'gray.400' : 'white';
+
+    const ActionButton = ({ label, url, onClick }: ActionButtonProps) => {
+        return (
+            <IconButton
+                aria-label={label}
+                variant="ghost"
+                icon={<CustomIcon url={url} />}
+                disabled={isChecked}
+                _hover={{
+                    backgroundColor: isAnswered ? 'purple.100' : 'gray.100',
+                }}
+                onClick={onClick}
+            />
+        );
+    };
+
     return (
         <Box
-            bg="white"
+            bg={bgCard}
             boxShadow={'sm'}
             rounded={'md'}
             overflow={'hidden'}
             padding="6"
-            marginY={3}>
+            marginY={3}
+            borderColor={isAnswered ? 'purple.500' : 'none'}
+            borderWidth={isAnswered ? '1px' : '0'}>
             <Text>{question}</Text>
             <Flex mt={6} justifyContent="space-between">
                 <Flex alignItems="center">
                     <Avatar
                         name={user}
                         size="sm"
-                        bg="purple.500"
+                        bg={isChecked ? 'gray.500' : 'purple.500'}
                         color="white"
                     />
                     <Text ml={2} color="gray.500">
@@ -31,20 +64,17 @@ const QuestionCard = ({id, question, user}: QuestionCardProps) => {
                 </Flex>
 
                 <Flex>
-                    <IconButton
-                        aria-label="check question"
-                        variant="ghost"
-                        icon={<CustomIcon url="/images/check.svg" />}
+                    <ActionButton
+                        label="Check question"
+                        url="/images/check.svg"
                     />
-                    <IconButton
-                        aria-label="check question"
-                        variant="ghost"
-                        icon={<CustomIcon url="/images/answer.svg" />}
+                    <ActionButton
+                        label="Answer question"
+                        url="/images/answer.svg"
                     />
-                    <IconButton
-                        aria-label="check question"
-                        variant="ghost"
-                        icon={<CustomIcon url="/images/delete.svg" />}
+                    <ActionButton
+                        label="Delete question"
+                        url="/images/delete.svg"
                     />
                 </Flex>
             </Flex>

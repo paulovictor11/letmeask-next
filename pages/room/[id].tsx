@@ -60,11 +60,29 @@ const Room: NextPage<RoomProps> = ({ id }) => {
                 {isEmpty ? (
                     <EmptyRoom />
                 ) : (
-                    <QuestionCard
-                        id="1"
-                        question="Olá, eu gostaria de saber como criar um componente funcional dentro do React e se existe diferença na perfomance entre um componente com classes."
-                        user="Rachel Laguna Martins"
-                    />
+                    <>
+                        <QuestionCard
+                            id="1"
+                            question="Olá, eu gostaria de saber como criar um componente funcional dentro do React e se existe diferença na perfomance entre um componente com classes."
+                            user="Rachel Laguna Martins"
+                            isAnswered={true}
+                            isChecked={false}
+                        />
+                        <QuestionCard
+                            id="1"
+                            question="Olá, eu gostaria de saber como criar um componente funcional dentro do React e se existe diferença na perfomance entre um componente com classes."
+                            user="Rachel Laguna Martins"
+                            isAnswered={false}
+                            isChecked={true}
+                        />
+                        <QuestionCard
+                            id="1"
+                            question="Olá, eu gostaria de saber como criar um componente funcional dentro do React e se existe diferença na perfomance entre um componente com classes."
+                            user="Rachel Laguna Martins"
+                            isAnswered={false}
+                            isChecked={false}
+                        />
+                    </>
                 )}
             </Box>
         </Box>
