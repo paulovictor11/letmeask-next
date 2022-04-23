@@ -32,7 +32,7 @@ const Home: NextPage = () => {
             <Box bg="purple.500" w="45%" h="100vh">
                 <Banner />
             </Box>
-            <Box bg="gray.50" w="55%" height="100vh">
+            <Box w="55%" height="100vh">
                 <Center h="100vh">
                     <Flex w="320px" direction="column">
                         <Image

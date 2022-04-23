@@ -1,6 +1,7 @@
 import { Box, Button, Center, Flex, IconButton, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import { FaCopy } from 'react-icons/fa';
+import CustomIcon from '../CustomIcon';
 
 type NavbarProps = {
     roomId: string;
@@ -14,7 +15,7 @@ const Navbar = ({ roomId }: NavbarProps) => {
                     bg="purple.500"
                     color="white"
                     aria-label="Copy room id"
-                    icon={<FaCopy />}
+                    icon={<CustomIcon url="/images/copy.svg" />}
                     borderRightRadius={0}
                     borderLeftRadius="8px"
                     _hover={{ backgroundColor: 'purple.700' }}

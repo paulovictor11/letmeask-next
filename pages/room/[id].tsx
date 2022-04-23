@@ -1,7 +1,19 @@
-import { Box, Button, Flex, Stack } from '@chakra-ui/react';
+import {
+    Avatar,
+    Badge,
+    Box,
+    Button,
+    Flex,
+    IconButton,
+    Stack,
+    Text,
+} from '@chakra-ui/react';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
+import CustomIcon from '../../src/components/CustomIcon';
+import EmptyRoom from '../../src/components/EmptyRoom';
 import Navbar from '../../src/components/Navbar';
+import QuestionCard from '../../src/components/QuestionCard';
 
 type RoomProps = {
     id: string;
@@ -23,9 +35,45 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 const Room: NextPage<RoomProps> = ({ id }) => {
+    const isEmpty = false;
+
+    const TitleRoom = () => {
+        return (
+            <Box mb={6}>
+                <Text
+                    fontSize="x-large"
+                    fontWeight="semibold"
+                    alignContent="center">
+                    Sala React Q{'&'}A
+                    <Badge
+                        bg="pink.500"
+                        color="white"
+                        borderRadius="full"
+                        px={3}
+                        py={1}
+                        ml={4}>
+                        4 perguntas
+                    </Badge>
+                </Text>
+            </Box>
+        );
+    };
+
     return (
-        <Box height="100vh" bg="gray.50">
+        <Box>
             <Navbar roomId={id} />
+            <Box mx={72} pt={16} pb={8}>
+                <TitleRoom />
+                {isEmpty ? (
+                    <EmptyRoom />
+                ) : (
+                    <QuestionCard
+                        id="1"
+                        question="Olá, eu gostaria de saber como criar um componente funcional dentro do React e se existe diferença na perfomance entre um componente com classes."
+                        user="Rachel Laguna Martins"
+                    />
+                )}
+            </Box>
         </Box>
     );
 };

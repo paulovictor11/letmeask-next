@@ -6,6 +6,13 @@ const config: ThemeConfig = {
 
 const theme = extendTheme({
     config,
+    styles: {
+        global: {
+            body: {
+                bg: 'gray.50'
+            }
+        },
+    },
     fonts: {
         default: "Poppins, system-ui, sans-serif",
     },
@@ -37,6 +44,10 @@ const theme = extendTheme({
             600: '#29292e',
             700: '#202024',
             800: '#121214',
+        },
+        pink: {
+            500: '#D67EE2',
+            700: '#E559F9'
         }
     }
 });
