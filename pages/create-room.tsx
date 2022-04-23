@@ -59,7 +59,7 @@ const CreateRoom: NextPage = () => {
                         <Text textAlign="center" color="gray.500" fontSize="smaller" mt={2}>
                             Quer entrar em uma sala já existente?&nbsp;
                             <Link href="/" passHref>
-                                <Button as="a" color="purple.50" variant="link">
+                                <Button as="a" color="pink.500" variant="link">
                                     <Text fontSize="smaller">Clique aqui</Text>
                                 </Button>
                             </Link>

@@ -24,7 +24,9 @@ const QuestionCard = ({
     isChecked,
 }: QuestionCardProps) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
-    const bgCard = isAnswered ? 'purple.50' : isChecked ? 'gray.400' : 'white';
+
+    const bgChecked = isChecked ? 'gray.400' : 'white';
+    const bgCard = isAnswered ? 'purple.50' : bgChecked;
 
     const ActionButton = ({ label, url, onClick }: ActionButtonProps) => {
         return (
@@ -95,7 +97,7 @@ const QuestionCard = ({
                         color="white"
                     />
                     <Text ml={2} color="gray.500">
-                        {user}
+                        {user} - {id}
                     </Text>
                 </Flex>
 

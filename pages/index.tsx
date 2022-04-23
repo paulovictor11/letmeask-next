@@ -13,8 +13,15 @@ import Image from 'next/image';
 import React from 'react';
 import Banner from '../src/components/Banner';
 import GoogleButton from '../src/components/GoogleButton';
+import { useRouter } from 'next/router';
 
 const Home: NextPage = () => {
+    const router = useRouter();
+
+    const handleEnterRoom = () => {
+        router.replace('/room/32343');
+    }
+
     const Divider: React.FC = () => {
         return (
             <Flex alignItems="center" justifyContent="space-between" my={6}>
@@ -67,7 +74,8 @@ const Home: NextPage = () => {
                             }}
                             _hover={{
                                 backgroundColor: 'purple.700',
-                            }}>
+                            }}
+                            onClick={handleEnterRoom}>
                             Entrar na sala
                         </Button>
                     </Flex>

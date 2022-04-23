@@ -13,18 +13,22 @@ type RoomProps = {
     id: string;
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
-    const id = context.params!.id;
-
+export const getStaticPaths: GetStaticPaths = async () => {
     return {
-        props: { id },
+        paths: [{
+            params: {
+                id: '323243'
+            }
+        }],
+        fallback: 'blocking',
     };
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+    const id = params!.id;
+
     return {
-        paths: [],
-        fallback: 'blocking',
+        props: { id },
     };
 };
 
