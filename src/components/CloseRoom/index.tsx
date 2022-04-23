@@ -34,7 +34,7 @@ const CloseRoom = () => {
                             <Text mt={4} fontSize="x-large" fontWeight="bold">
                                 Encerrar sala
                             </Text>
-                            <Text mt={2} fontSize="md" color="gray.400">
+                            <Text mt={2} fontSize="md" color="gray.500">
                                 Tem certeza que deseja encerrar esta sala?
                             </Text>
 

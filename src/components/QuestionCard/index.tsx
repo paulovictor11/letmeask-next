@@ -1,4 +1,5 @@
-import { Avatar, Box, Flex, IconButton, Text } from '@chakra-ui/react';
+import { Avatar, Box, Button, Flex, IconButton, Modal, ModalBody, ModalContent, ModalOverlay, Text, useDisclosure } from '@chakra-ui/react';
+import { FaRegTrashAlt } from 'react-icons/fa';
 import CustomIcon from '../CustomIcon';
 
 type QuestionCardProps = {
@@ -22,6 +23,7 @@ const QuestionCard = ({
     isAnswered,
     isChecked,
 }: QuestionCardProps) => {
+    const { isOpen, onOpen, onClose } = useDisclosure();
     const bgCard = isAnswered ? 'purple.50' : isChecked ? 'gray.400' : 'white';
 
     const ActionButton = ({ label, url, onClick }: ActionButtonProps) => {
@@ -38,6 +40,40 @@ const QuestionCard = ({
             />
         );
     };
+
+    const DeleteQuestion = () => {
+        return (
+            <>
+                <ActionButton
+                    label="Delete question"
+                    url="/images/delete.svg"
+                    onClick={onOpen}
+                />
+
+                <Modal onClose={onClose} isOpen={isOpen} size="xl" isCentered>
+                    <ModalOverlay />
+                    <ModalContent>
+                        <ModalBody>
+                            <Flex direction="column" alignItems="center" my={20}>
+                                <FaRegTrashAlt color="red" size="40px" />
+                                <Text mt={4} fontSize="x-large" fontWeight="bold">
+                                    Excluir Pergunta
+                                </Text>
+                                <Text mt={2} fontSize="md" color="gray.500">
+                                    Tem certeza que deseja exluir esta pergunta?
+                                </Text>
+
+                                <Flex gap={2} mt={8}>
+                                    <Button onClick={onClose}>Cancelar</Button>
+                                    <Button colorScheme="red">Sim, excluir</Button>
+                                </Flex>
+                            </Flex>
+                        </ModalBody>
+                    </ModalContent>
+                </Modal>
+            </>
+        );
+    }
 
     return (
         <Box
@@ -72,10 +108,7 @@ const QuestionCard = ({
                         label="Answer question"
                         url="/images/answer.svg"
                     />
-                    <ActionButton
-                        label="Delete question"
-                        url="/images/delete.svg"
-                    />
+                    <DeleteQuestion />
                 </Flex>
             </Flex>
         </Box>
