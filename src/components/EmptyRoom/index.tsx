@@ -18,7 +18,7 @@ const EmptyRoom = () => {
                     mt={2}>
                     Nenhuma pergunta por aqui...
                 </Text>
-                <Text textAlign="center" fontSize="sm" color="gray.400">
+                <Text textAlign="center" fontSize="sm" color="gray.500">
                     Envie o código desta sala para seus amigos e <br />
                     comece a responder perguntas!
                 </Text>

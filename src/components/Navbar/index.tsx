@@ -8,6 +8,8 @@ type NavbarProps = {
 };
 
 const Navbar = ({ roomId }: NavbarProps) => {
+    const isAdmin = false;
+
     const RoomBadge = () => {
         return (
             <Flex h="40px">
@@ -54,7 +56,7 @@ const Navbar = ({ roomId }: NavbarProps) => {
 
                 <Flex alignItems={'center'} gap={2}>
                     <RoomBadge />
-                    <CloseRoom />
+                    {isAdmin && <CloseRoom />}
                 </Flex>
             </Flex>
         </Box>
