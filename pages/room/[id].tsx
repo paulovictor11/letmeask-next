@@ -1,16 +1,9 @@
 import {
-    Avatar,
     Badge,
     Box,
-    Button,
-    Flex,
-    IconButton,
-    Stack,
     Text,
 } from '@chakra-ui/react';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
-import Image from 'next/image';
-import CustomIcon from '../../src/components/CustomIcon';
 import EmptyRoom from '../../src/components/EmptyRoom';
 import Navbar from '../../src/components/Navbar';
 import QuestionCard from '../../src/components/QuestionCard';

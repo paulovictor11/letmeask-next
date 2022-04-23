@@ -1,6 +1,6 @@
-import { Box, Button, Center, Flex, IconButton, Text } from '@chakra-ui/react';
+import { Box, Center, Flex, IconButton, Text } from '@chakra-ui/react';
 import Image from 'next/image';
-import { FaCopy } from 'react-icons/fa';
+import CloseRoom from '../CloseRoom';
 import CustomIcon from '../CustomIcon';
 
 type NavbarProps = {
@@ -54,15 +54,7 @@ const Navbar = ({ roomId }: NavbarProps) => {
 
                 <Flex alignItems={'center'} gap={2}>
                     <RoomBadge />
-
-                    <Button
-                        w="131px"
-                        variant="outline"
-                        color="purple.400"
-                        borderColor="purple.400"
-                        _focus={{ borderColor: 'purple.400' }}>
-                        Encerrar Sala
-                    </Button>
+                    <CloseRoom />
                 </Flex>
             </Flex>
         </Box>
