@@ -2,9 +2,16 @@ import { Box, Button, Center, Flex, Input, Text } from "@chakra-ui/react";
 import { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import Banner from "../src/components/Banner";
 
 const CreateRoom: NextPage = () => {
+    const router = useRouter();
+
+    const handleCreateRoom = () => {
+        router.replace('/room/323243');
+    }
+
     return (
         <Flex>
             <Box bg="purple.500" w="45%" h="100vh">
@@ -45,7 +52,8 @@ const CreateRoom: NextPage = () => {
                             }}
                             _hover={{
                                 backgroundColor: 'purple.700',
-                            }}>
+                            }}
+                            onClick={handleCreateRoom}>
                             Criar sala
                         </Button>
                         <Text textAlign="center" color="gray.500" fontSize="smaller" mt={2}>
