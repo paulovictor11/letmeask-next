@@ -1,32 +1,10 @@
-import {
-    Box,
-    Button,
-    Center,
-    Divider as ChakraDivider,
-    Flex,
-    Input,
-    Text,
-} from '@chakra-ui/react';
-import type { NextPage } from 'next';
-import { FaSignInAlt } from 'react-icons/fa';
-import Image from 'next/image';
-import React from 'react';
-import Banner from '../src/components/Banner';
-import GoogleButton from '../src/components/GoogleButton';
+import { Box, Button, Center, Flex, Input, Text } from "@chakra-ui/react";
+import { NextPage } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import Banner from "../src/components/Banner";
 
-const Home: NextPage = () => {
-    const Divider: React.FC = () => {
-        return (
-            <Flex alignItems="center" justifyContent="space-between" my={6}>
-                <ChakraDivider bg="gray.500" w="90px" />
-                <Text fontSize="xs" color="gray.500">
-                    ou entre em uma sala
-                </Text>
-                <ChakraDivider bg="gray.500" w="90px" />
-            </Flex>
-        );
-    };
-
+const CreateRoom: NextPage = () => {
     return (
         <Flex>
             <Box bg="purple.500" w="45%" h="100vh">
@@ -41,11 +19,12 @@ const Home: NextPage = () => {
                             width="154px"
                             height="69px"
                         />
-                        <GoogleButton />
-                        <Divider />
+                        <Text textAlign="center" fontSize="x-large" fontWeight="bold" mb={5} mt={12}>
+                            Crie uma nova sala
+                        </Text>
                         <Input
                             h="50px"
-                            placeholder="Digite o código da sala"
+                            placeholder="Nome da sala"
                             color="black"
                             borderColor="gray.300"
                             borderWidth="2px"
@@ -61,20 +40,27 @@ const Home: NextPage = () => {
                             color="white"
                             borderColor="purple.500"
                             borderWidth="2px"
-                            leftIcon={<FaSignInAlt />}
                             _focus={{
                                 borderColor: 'purple.200'
                             }}
                             _hover={{
                                 backgroundColor: 'purple.700',
                             }}>
-                            Entrar na sala
+                            Criar sala
                         </Button>
+                        <Text textAlign="center" color="gray.500" fontSize="smaller" mt={2}>
+                            Quer entrar em uma sala já existente?&nbsp;
+                            <Link href="/" passHref>
+                                <Button as="a" color="purple.50" variant="link">
+                                    <Text fontSize="smaller">Clique aqui</Text>
+                                </Button>
+                            </Link>
+                        </Text>
                     </Flex>
                 </Center>
             </Box>
         </Flex>
     );
-};
+}
 
-export default Home;
+export default CreateRoom;
